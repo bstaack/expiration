@@ -3,7 +3,7 @@
   "short_name": "Expire",
   "display": "fullscreen",
   "start_url": "/",
-  "theme_color": "#673ab6",
+  "theme_color": "#eeeCe0",
   "background_color": "#111111",
   "icons": [
     {
