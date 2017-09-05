@@ -13,26 +13,34 @@
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/datejs/1.0/date.min.js"></script>
   <link rel="stylesheet" href="style.css">
-  <script type="text/javascript" src="script.js"></script>
-  <script type="text/javascript" src="sw.js"></script>
+  <script defer src="script.js"></script>
 </head>
 <body>
 
-<form id="form">
-  <input placeholder="Item" type="text" id="item" class="input-line" name="item" required>
-  <input placeholder="Length" type="number" id="length" class="input-line" name="length" required>
-  <div id="radioDiv">
-    <label for="days">days
-      <input type="radio" id="days" name="lengthValue" value="days" checked>
-    </label>
-    <label for="hours">hours
-      <input type="radio" id="hour s"name="lengthValue" value="hours">
-    </label>
-    <input type="submit" value="add">
+<header>
+  <button id="addItems">Add Items</button>
+  <button id="edit">edit list</button>
+</header>
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <form id="form">
+      <div class="inputs">
+        <input placeholder="Item" type="text" id="item" class="input-line" name="item" required>
+        <input placeholder="Length" type="number" id="length" class="input-line" name="length" required>
+      </div>
+      <div id="radioDiv">
+        <label for="days">days
+          <input type="radio" id="days" name="lengthValue" value="days" checked>
+        </label>
+        <label for="hours">hours
+          <input type="radio" id="hour s"name="lengthValue" value="hours">
+        </label>
+        <input type="submit" id="close" value="add">
+      </div>
+    </form>
   </div>
-</form>
 
-<button id="edit">edit list</button>
+</div>
 
 <div class="list">
   <ul></ul>

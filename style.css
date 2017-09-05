@@ -12,13 +12,6 @@ body, html {
   margin-left: 1em;
 }
 
-#item {
-  width: 25%;
-}
-#length {
-  width: 25%;
-}
-
 #radioDiv {
   display: inline-block;
 }
@@ -29,6 +22,28 @@ body, html {
   background-color: blue;
 }
 
+header {
+  height: 8%;
+}
+
+#addItems {
+  text-decoration: none;
+  border: none;
+  width: 80%;
+  height: 100%;
+}
+#edit {
+  text-decoration: none;
+  border: none;
+  width: 18%;
+  height: 100%;
+}
+
+.list {
+  width: 80%;
+  margin: auto;
+}
+
 ul {
   list-style-type: none;
   padding: 0;
@@ -37,6 +52,7 @@ ul {
 li {
   padding: 1em;
   text-align: left;
+  position: relative;
 }
 
 li,p {
@@ -51,8 +67,13 @@ input {
   border: none;
 }
 
+.inputs {
+  width: 100%;
+}
+
 .input-line {
   background: none;
+  width: 100%;
   margin-bottom: 10px;
   line-height: 2.4em;
   color: #523629;
@@ -68,6 +89,7 @@ input {
 
 p {
   display: inline-block;
+  margin: 0 0 45px 0;
 }
 
 input[type="submit"] {
@@ -79,42 +101,80 @@ input[type="submit"] {
   font-weight: 800;
   font-size: 1em;
 }
-
 input[type="submit"]:hover {
   opacity: 0.7;
 }
-
 input[value="add"] {
   color: #eeeCe0;
   font-size: 1.2em;
 }
-
 input[type="submit"]:active {
-
 }
 
 .time {
   margin: 0 2em 0 2em;
   font-weight: 800;
-  font-size: 1.5em;
+  font-size: 1.25em;
   color: #0a5703;
+  position: absolute;
+  left: 50px;
+  bottom: 10px;
 }
 
 .delete {
-  display: none;
   text-decoration: none;
+  display: none;
   border: none;
   border-radius: 100%;
   background-color: red;
   width: 2em;
   height: 2em;
+  position: absolute;
+  right: 10px;
+  top: 35%;
 }
 
 [type="radio"] {
-  width: 1em;
+  width: 30px;
+  height: 30px;
 }
 
-#edit {
-  text-decoration: none;
-  border: none;
+
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 30px;
+    border: 1px solid #888;
+    width: 60%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }

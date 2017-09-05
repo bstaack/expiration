@@ -1,5 +1,6 @@
 $(function() {
-  navigator.serviceWorker && navigator.serviceWorker.register('./sw.js').then(function(registration) {console.log('Excellent, registered with scope: ', registration.scope);});
+  navigator.serviceWorker && navigator.serviceWorker.register('./sw.js').then(function(registration) {
+    });
 
   var date = new Date(), data = {}, HTMLlist = [], items = [], html = "";
 
@@ -89,6 +90,20 @@ $(function() {
   })
 
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+var modal = document.getElementById('myModal');
+var btn = document.getElementById("addItems");
+
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
 
 
 
