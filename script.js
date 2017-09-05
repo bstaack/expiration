@@ -2,7 +2,7 @@ $(function() {
   navigator.serviceWorker && navigator.serviceWorker.register('./sw.js').then(function(registration) {
     });
 
-  var date = new Date(), data = {}, HTMLlist = [], items = [], html = "";
+  var date, data = {}, HTMLlist = [], items = [], html = "";
 
   Date.prototype.addTime= function(h){
       this.setHours(this.getHours()+h);
@@ -50,6 +50,7 @@ $(function() {
       }
 
       populateList(el, type, time);
+      date = new Date();
     })
 
   }; //end of start
