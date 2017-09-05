@@ -1,0 +1,16 @@
+{
+  "name": "Expire Timer",
+  "short_name": "Expire",
+  "display": "fullscreen",
+  "start_url": "/",
+  "theme_color": "#eeeCe0",
+  "background_color": "#00000000",
+  ​​"orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
