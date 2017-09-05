@@ -1,0 +1,10 @@
+{
+    "generationTool": "pwabuilder-api",
+    "generationToolVersion": "2.0.1-rc.1",
+    "platformId": "web",
+    "platformPackage": "pwabuilder-web",
+    "platformVersion": "2.0.0-rc.2",
+    "generatedFrom": "Website Wizard",
+    "generationDate": "2017-09-05 14:54:23 Z",
+    "generatedURL": "https://www.expiretimer.com/manifest.json"
+}

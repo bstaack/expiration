@@ -1,15 +1,19 @@
 {
-  "name": "Expire Timer",
-  "short_name": "Expire",
-  "display": "fullscreen",
-  "start_url": "/",
-  "theme_color": "#eeeCe0",
-  "background_color": "#111111",
-  "icons": [
-    {
-      "src": "icon.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    }
-  ]
+    "name": "Expire Timer",
+    "short_name": "Expire",
+    "display": "fullscreen",
+    "start_url": "https://www.expiretimer.com/",
+    "theme_color": "#eeeCe0",
+    "background_color": "transparent",
+    "icons": [
+        {
+            "src": "/images/7c2aa05f-9467-c33a-aca4-4b46e858a25c.webPlatform.png",
+            "sizes": "120x120",
+            "type": "image/png"
+        }
+    ],
+    "orientation": "portrait-primary",
+    "lang": "en",
+    "description": "set updated timers for expiring items",
+    "scope": ""
 }
