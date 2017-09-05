@@ -33,7 +33,7 @@ $(function() {
 
     function populateList(el, type, time){
 
-      html = "<li class=" + altColorList(HTMLlist.indexOf(el)) + "><p><span id='" + el.item.substring(0, 4) + "'>" + el.item + "</span> <span class='time'>" + type + "</span></p><button class='delete fa fa-minus' id='" + el.item + "'></button></li>";
+      html = "<li class=" + altColorList(HTMLlist.indexOf(el)) + "><p><span id='" + el.item.substring(0, 4) + "'><a>" + el.item + "</a></span><span class='time'>" + type + "</span></p><button class='delete fa fa-minus' id='" + el.item + "'></button></li>";
 
       $('ul').append(html);
     };
@@ -104,6 +104,8 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
+
+
 
 
 
