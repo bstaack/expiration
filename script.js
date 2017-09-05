@@ -1,36 +1,9 @@
 $(function() {
-  var date = new Date(), data = {}, HTMLlist = [], items = [], justDay = "MM-DD DAY", dayAndTime = "MM-DD-YYYY DAY H M ", justTime = "H M", html = "";
+  var date = new Date(), data = {}, HTMLlist = [], items = [], html = "";
 
-  function minutes(){
-    if(date.getMinutes()<10){
-      return "0"+ date.getMinutes();
-    } else {return date.getMinutes();}
-  }
-  function addHours(hours, add, mins){
-    hour = hours + add;
-    if (hour == 24){
-      return "12:" + minutes() + " am";
-    } else if(hour > 24){
-      return hour - 24 + ":" + minutes() + " am";
-    } else if (hour > 12){
-        return hour - 12 + ":" + minutes() + " pm";
-      } else {return hour + ":" + minutes() + " am";}
-  }
-  Date.prototype.addDays = function(days) {
-    var dat = new Date(this.valueOf());
-    dat.setDate(dat.getDate() + days);
-    return dat;
-  }
-  function dateConvert(dateobj){
-    var year = dateobj.getFullYear();
-    var month= ("0" + (dateobj.getMonth()+1)).slice(-2);
-    var date = ("0" + dateobj.getDate()).slice(-2);
-    var day = dateobj.getDay();
-    var months = ["01","02","03","04","05","06","07","08","09","10","11","12"];
-    var dates = ["sun","mon","tue","wed","thu","fri","sat"];
-
-    return months[parseInt(month)-1] + "-" + date + " " + dates[parseInt(day)];
-
+  Date.prototype.addTime= function(h){
+      this.setHours(this.getHours()+h);
+      return this;
   }
   function altColorList(int){
     if(int % 2 === 0){
@@ -39,8 +12,7 @@ $(function() {
   }
 
   function start(){
-    date = new Date();
-    HTMLlist = []; items = [];
+    date = new Date(), HTMLlist = [], items = [];
     $('ul').empty();
 
     function addItemsList(){
@@ -67,10 +39,10 @@ $(function() {
       let type, time;
 
       if( el.type == "days" ){
-        type = dateConvert(date.addDays( el.length ));
+        type = date.addTime(el.length * 24).toString('MM-d dddd h:mm tt');
         time = false;
       } else {
-        type = addHours(date.getHours(), el.length, date.getMinutes());
+        type = date.addTime(el.length).toString('MM-d dddd h:mm tt');
         time = true;
       }
 
@@ -97,7 +69,7 @@ $(function() {
 
   function timer() {
     start();
-    startTimes = setInterval(start, 180000);
+    startTimes = setInterval(start, 90000);
   }
 
   timer();
@@ -109,6 +81,17 @@ $(function() {
     clearInterval(startTimes);
     timer();
   });
+
+  $('#edit').click(function(){
+    $('.delete').toggle();
+  })
+
+
+
+
+
+
+
 
 
 });
