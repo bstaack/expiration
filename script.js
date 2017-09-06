@@ -32,7 +32,7 @@ $(function() {
 
     function populateList(el, type, time, category){
 
-      html = "<li class=" + HTMLlist.indexOf(el) + "><p><span id='" + el.item.substring(0, 4) + "'><a>" + el.item + "</a></span><span class='time'>" + type + "</span></p><button class='delete fa fa-minus' id='" + el.item + "'></button></li>";
+      html = "<li class=" + category + "><p><span id='" + el.item.substring(0, 4) + "'><a>" + el.item + "</a></span><span class='time'>" + type + "</span></p><button class='delete fa fa-minus' id='" + el.item + "'></button></li>";
 
       let selector = "#" + category;
 
