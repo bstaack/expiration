@@ -9,7 +9,6 @@ $(function() {
 
   function start(){
     date = new Date(), HTMLlist = [], items = [];
-
     $('#myUL li').remove();
 
     function addItemsList(){
@@ -25,28 +24,26 @@ $(function() {
       HTMLlist.push(JSON.parse(localStorage.getItem(items[i])));
     }
 
-    function populateList(el, type, time, category){
-
-      html = "<li class=" + category + "><p class='item'><a>" + el.item + "</a><span class='time'>" + type + "</span></p><button class='delete fa fa-minus' id='" + el.item + "'></button></li>";
-
+    function populateList(el, month, time, category, day){
+      html = "<li class=" + category + "><p class='item'><a>" + el.item + "</a><span class='time'>" + month + "<span class='day " + day + "'>" + day + "</span>" + time + "</span></p><button class='delete fa fa-minus' id='" + el.item + "'></button></li>";
       let selector = "#" + category;
-
       $(selector).after(html);
-
     };
 
     HTMLlist.map(function(el){
-      let type, time, category = el.category;
+      let time, day, month, category = el.category;
 
       if( el.type == "days" ){
-        type = date.addTime(el.length * 24).toString('MM-d ddd h:mm tt');
-        time = false;
+        month = date.addTime(el.length * 24).toString('MM-d');
+        time = date.addTime(el.length).toString('h:mm tt');
+        day = date.addTime(el.length).toString('ddd');
       } else {
-        type = date.addTime(el.length).toString('MM-d ddd h:mm tt');
-        time = true;
+        month = date.addTime(el.length).toString('MM-d');
+        time = date.addTime(el.length).toString('h:mm tt');
+        day = date.addTime(el.length).toString('ddd');
       }
 
-      populateList(el, type, time, category);
+      populateList(el, month, time, category, day);
       date = new Date();
     })
   };

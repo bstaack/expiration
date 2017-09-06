@@ -147,6 +147,33 @@ h1 {
   width: 100%;
 }
 
+.day {
+  color: white;
+  margin: 0 5px 0 5px;
+}
+
+.Sun{
+  background-color: black;
+}
+.Mon{
+  background-color: blue;
+}
+.Tue{
+  color: black;
+  background-color: yellow;
+}
+.Wed{
+  background-color: red;
+}
+.Thu{
+  background-color: brown;
+}
+.Fri{
+  background-color: green;
+}
+.Sat{
+  background-color: orange;
+}
 
 
 /* The Modal (background) */
