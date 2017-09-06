@@ -23,7 +23,7 @@ body, html {
 }
 
 header {
-  height: 8%;
+  height: 5%;
 }
 
 #addItems {
@@ -45,7 +45,6 @@ select {
 
 .list {
   width: 95%;
-  margin: auto;
 }
 
 ul {
@@ -55,17 +54,9 @@ ul {
 
 li {
   padding: 1em;
+  width: 95%;
   text-align: left;
   position: relative;
-  border-radius: 5px;
-}
-
-li,p {
-  font-size: 1em;
-}
-
-.list1 {
-  background-color: #aea985;
 }
 
 input {
@@ -92,9 +83,10 @@ input {
   transition: all .2s ease;
 }
 
-p {
+.item {
   display: inline-block;
-  margin: 0 0 45px 0;
+  margin: 0 0 30px 2em;
+  font-weight: 600;
 }
 
 input[type="submit"] {
@@ -145,8 +137,14 @@ input[type="submit"]:active {
 }
 
 #myInput {
-  width: 100%;
+  width: 99%;
+  height: 4em;
   text-align: center;
+}
+
+h1 {
+  opacity: 0.75;
+  margin-left: 1em;
 }
 
 

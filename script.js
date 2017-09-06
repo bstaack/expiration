@@ -6,16 +6,11 @@ $(function() {
       this.setHours(this.getHours()+h);
       return this;
   }
-  // function altColorList(int){
-  //   if(int % 2 === 0){
-  //     return "list1"
-  //   } else {return "list2"}
-  // }
 
   function start(){
     date = new Date(), HTMLlist = [], items = [];
 
-    $('#myUL ul').empty();
+    $('#myUL li').remove();
 
     function addItemsList(){
       for (var key in localStorage){
@@ -32,11 +27,11 @@ $(function() {
 
     function populateList(el, type, time, category){
 
-      html = "<li class=" + category + "><p><span id='" + el.item.substring(0, 4) + "'><a>" + el.item + "</a></span><span class='time'>" + type + "</span></p><button class='delete fa fa-minus' id='" + el.item + "'></button></li>";
+      html = "<li class=" + category + "><p class='item'><a>" + el.item + "</a><span class='time'>" + type + "</span></p><button class='delete fa fa-minus' id='" + el.item + "'></button></li>";
 
       let selector = "#" + category;
 
-      $(selector).append(html);
+      $(selector).after(html);
 
     };
 
@@ -44,10 +39,10 @@ $(function() {
       let type, time, category = el.category;
 
       if( el.type == "days" ){
-        type = date.addTime(el.length * 24).toString('MM-d dddd h:mm tt');
+        type = date.addTime(el.length * 24).toString('MM-d ddd h:mm tt');
         time = false;
       } else {
-        type = date.addTime(el.length).toString('MM-d dddd h:mm tt');
+        type = date.addTime(el.length).toString('MM-d ddd h:mm tt');
         time = true;
       }
 
@@ -75,7 +70,7 @@ $(function() {
 
   function timer() {
     start();
-    startTimes = setInterval(start, 90000);
+    startTimes = setInterval(start, 60000);
   }
 
   timer();
