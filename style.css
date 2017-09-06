@@ -7,12 +7,17 @@ body, html {
   font-family: 'Raleway', sans-serif;
 }
 
+#topSpace{
+  height: 5.1em;
+}
+
 #form {
   display: inline-block;
 }
 
 #radioDiv {
   display: inline-block;
+  width: 100%;
 }
 
 #box {
@@ -43,7 +48,7 @@ select {
 }
 
 .list {
-  width: 95%;
+  width: 99%;
 }
 
 ul {
@@ -52,10 +57,11 @@ ul {
 }
 
 li {
-  padding: 1em;
+  padding: 0.5em;
   width: 95%;
   text-align: left;
   position: relative;
+  border-top: solid 1px black;
 }
 
 input {
@@ -86,6 +92,7 @@ input {
   display: inline-block;
   margin: 0 0 30px 2em;
   font-weight: 600;
+  color: black;
 }
 
 input[type="submit"] {
@@ -95,6 +102,7 @@ input[type="submit"] {
   background-color: #0a5703;
   font-weight: 800;
   font-size: 1em;
+  border-radius: 10px 10px 0 0;
 }
 input[type="submit"]:hover {
   opacity: 0.7;
@@ -130,12 +138,6 @@ input[value="add"] {
 [type="radio"] {
   width: 30px;
   height: 30px;
-}
-
-#myInput {
-  width: 99%;
-  height: 4em;
-  text-align: center;
 }
 
 h1 {
@@ -175,6 +177,14 @@ h1 {
   background-color: orange;
 }
 
+#myInput {
+  width: 99%;
+  height: 4em;
+  text-align: center;
+  background-color: white;
+  position: fixed;
+  z-index: 5;
+}
 
 /* The Modal (background) */
 .modal {

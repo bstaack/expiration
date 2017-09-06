@@ -18,7 +18,7 @@ $(function() {
     }
 
     addItemsList();
-    items.sort();
+    items.sort().reverse();
 
     for(i=0; i < localStorage.length; i++){
       HTMLlist.push(JSON.parse(localStorage.getItem(items[i])));
