@@ -28,6 +28,10 @@
     <form id="form">
       <div class="inputs">
         <input placeholder="Item" type="text" id="item" class="input-line" name="item" required>
+        <select id="category" name="Category">
+          <option value="food">Food</option>
+          <option value="drinks">Drinks</option>
+        </select>
         <input placeholder="Length" type="number" id="length" class="input-line" name="length" required>
       </div>
       <div id="radioDiv">
@@ -41,11 +45,15 @@
       </div>
     </form>
   </div>
-
 </div>
 
 <div class="list">
-  <ul id="myUL"></ul>
+  <ul id="myUL">
+    <li><h1>Food</h1></li>
+    <ul id="food"></ul>
+    <li><h1>Drinks</h1></li>
+    <ul id="drinks"></ul>
+  </ul>
 </div>
 
 <!-- search function -->

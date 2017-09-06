@@ -39,6 +39,10 @@ header {
   height: 100%;
 }
 
+select {
+  width: 50%;
+}
+
 .list {
   width: 95%;
   margin: auto;

@@ -1,22 +1,21 @@
 $(function() {
   navigator.serviceWorker && navigator.serviceWorker.register('./sw.js').then(function(registration) {
     });
-
   var date, data = {}, HTMLlist = [], items = [], html = "";
-
   Date.prototype.addTime= function(h){
       this.setHours(this.getHours()+h);
       return this;
   }
-  function altColorList(int){
-    if(int % 2 === 0){
-      return "list1"
-    } else {return "list2"}
-  }
+  // function altColorList(int){
+  //   if(int % 2 === 0){
+  //     return "list1"
+  //   } else {return "list2"}
+  // }
 
   function start(){
     date = new Date(), HTMLlist = [], items = [];
-    $('ul').empty();
+
+    $('#myUL ul').empty();
 
     function addItemsList(){
       for (var key in localStorage){
@@ -31,15 +30,18 @@ $(function() {
       HTMLlist.push(JSON.parse(localStorage.getItem(items[i])));
     }
 
-    function populateList(el, type, time){
+    function populateList(el, type, time, category){
 
-      html = "<li class=" + altColorList(HTMLlist.indexOf(el)) + "><p><span id='" + el.item.substring(0, 4) + "'><a>" + el.item + "</a></span><span class='time'>" + type + "</span></p><button class='delete fa fa-minus' id='" + el.item + "'></button></li>";
+      html = "<li class=" + HTMLlist.indexOf(el) + "><p><span id='" + el.item.substring(0, 4) + "'><a>" + el.item + "</a></span><span class='time'>" + type + "</span></p><button class='delete fa fa-minus' id='" + el.item + "'></button></li>";
 
-      $('ul').append(html);
+      let selector = "#" + category;
+
+      $(selector).append(html);
+
     };
 
     HTMLlist.map(function(el){
-      let type, time;
+      let type, time, category = el.category;
 
       if( el.type == "days" ){
         type = date.addTime(el.length * 24).toString('MM-d dddd h:mm tt');
@@ -49,20 +51,20 @@ $(function() {
         time = true;
       }
 
-      populateList(el, type, time);
+      populateList(el, type, time, category);
       date = new Date();
     })
-
-  }; //end of start
+  };
+////////////////////////end of start ////////////////////////
 
   $("form").on("submit", function(event) {
     event.preventDefault();
-    let item = $("#item").val(), length = $("#length").val(), selectedVal, selected = $("#radioDiv input[type='radio']:checked");
+    let item = $("#item").val(), length = $("#length").val(), selectedVal, selected = $("#radioDiv input[type='radio']:checked"), category = $("#category option:selected").val();
 
     if (selected.length > 0) {
       selectedVal = selected.val();
     }
-    data = {item: item, length: Number(length), type: selectedVal};
+    data = {item: item, length: Number(length), type: selectedVal, category: category};
     localStorage.setItem(item, JSON.stringify(data));
 
     clearInterval(startTimes);
@@ -95,7 +97,6 @@ $(function() {
 
 var modal = document.getElementById('myModal');
 var btn = document.getElementById("addItems");
-
 btn.onclick = function() {
     modal.style.display = "block";
 }
@@ -105,7 +106,6 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
-
 
 
 
