@@ -25,7 +25,7 @@ $(function() {
     }
 
     function populateList(el, month, time, category, day){
-      html = "<li class=" + category + "><p class='item'>- " + el.item + "</p></br><div class='month'>" + month + "</div><div class='day " + day + "'>" + day + "</div><div class='time'>" + time + "</div><button class='delete fa fa-minus' id='" + el.item + "'></button></li>";
+      html = "<li class=" + category + "><p class='item'>- <a>" + el.item + "</a></p></br><div class='month'>" + month + "</div><div class='day " + day + "'>" + day + "</div><div class='time'>" + time + "</div><button class='delete fa fa-minus' id='" + el.item + "'></button></li>";
       let selector = "#" + category;
       $(selector).after(html);
     };
