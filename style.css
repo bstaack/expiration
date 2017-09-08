@@ -1,5 +1,3 @@
-/* 800 for bold  */
-
 body, html {
   width: 100%; height: 100%;
   margin: 0; padding: 0;
@@ -13,11 +11,18 @@ body, html {
 
 #form {
   display: inline-block;
+  width: 100%;
 }
 
 #radioDiv {
   display: inline-block;
   width: 100%;
+  text-align: center;
+}
+
+#radio {
+  display: inline-block;
+  margin: 0 auto;
 }
 
 #box {
@@ -28,19 +33,22 @@ body, html {
 
 header {
   height: 5%;
+  width: 100%;
 }
 
-#addItems {
+#addItems, #edit {
   text-decoration: none;
   border: none;
-  width: 80%;
   height: 100%;
+  padding: 0;
+  float: left;
 }
 #edit {
-  text-decoration: none;
-  border: none;
-  width: 18%;
-  height: 100%;
+  width: 20%;
+}
+#addItems {
+  width: 80%;
+  background-color: gray;
 }
 
 select {
@@ -152,6 +160,8 @@ h1 {
 .day {
   color: white;
   margin: 0 5px 0 5px;
+  padding: 3px;
+  border-radius: 10px;
 }
 
 .Sun{
@@ -178,7 +188,7 @@ h1 {
 }
 
 #myInput {
-  width: 99%;
+  width: 100%;
   height: 4em;
   text-align: center;
   background-color: white;
