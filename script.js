@@ -47,7 +47,8 @@ $(function() {
       date = new Date();
     })
   };
-////////////////////////end of start ////////////////////////
+
+///////////////////////////  end of start   ////////////////////////////////////
 
   $("form").on("submit", function(event) {
     event.preventDefault();
@@ -98,9 +99,6 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
-
-
-
 
 
 
