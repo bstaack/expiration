@@ -1,54 +1,54 @@
 $(function() {
   navigator.serviceWorker && navigator.serviceWorker.register('./sw.js').then(function(registration) {
     });
+
   var date, data = {}, HTMLlist = [], items = [], html = "";
+
   Date.prototype.addTime= function(h){
-      this.setHours(this.getHours()+h);
+      this.setHours(this.getHours() + h);
       return this;
   }
 
   function start(){
     date = new Date(), HTMLlist = [], items = [];
     $('#myUL li').remove();
-
-    function addItemsList(){
-      for (var key in localStorage){
-       items.push(key);
-      }
+    
+    for (let i = 0; i < localStorage.length; i++) {
+        items.push(localStorage.key(i));
     }
-
-    addItemsList();
     items.sort().reverse();
-
-    for(i=0; i < localStorage.length; i++){
+    
+    for (i = 0; i < localStorage.length; i++){
       HTMLlist.push(JSON.parse(localStorage.getItem(items[i])));
     }
-
+    
     function populateList(el, month, time, category, day){
-      html = "<li class=" + category + "><p class='item'>- <a>" + el.item + "</a></p></br><div class='month'>" + month + "</div><div class='day " + day + "'>" + day + "</div><div class='time'>" + time + "</div><button class='delete fa fa-minus' id='" + el.item + "'></button></li>";
+      html = "<li class=" + category + "><p class='item'>- <a>" + el.item + "</a></p></br><div class='month'>"
+        + month + "</div><div class='day " + day + "'>" + day + "</div><div class='time'>" + time +
+        "</div><button class='delete fa fa-minus' id='" + el.item + "'></button></li>";
       let selector = "#" + category;
       $(selector).after(html);
     };
-
+    
     HTMLlist.map(function(el){
-      let time, day, month, category = el.category;
-
-      if( el.type == "days" ){
+        let time, day, month, category = el.category;        
+       
+        if (el.type == "days") {
         month = date.addTime(el.length * 24).toString('MM-d');
-        time = date.addTime(el.length).toString('h:mm tt');
+        time = date.toString('h:mm tt');
         day = date.addTime(el.length).toString('ddd');
-      } else {
-        month = date.addTime(el.length).toString('MM-d');
+        } else {
+        month = date.toString('MM-d');
         time = date.addTime(el.length).toString('h:mm tt');
-        day = date.addTime(el.length).toString('ddd');
+        day = date.toString('ddd');
       }
-
+      
       populateList(el, month, time, category, day);
       date = new Date();
     })
-  };
 
 ///////////////////////////  end of start   ////////////////////////////////////
+  };
 
   $("form").on("submit", function(event) {
     event.preventDefault();
@@ -84,23 +84,6 @@ $(function() {
   $('#edit').click(function(){
     $('.delete').toggle();
   })
-
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-var modal = document.getElementById('myModal');
-var btn = document.getElementById("addItems");
-btn.onclick = function() {
-    modal.style.display = "block";
-}
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-
-
 
 
 
